@@ -9,6 +9,10 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
+    <properties>
+        <appName>config-service</appName>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -69,7 +73,7 @@
     </dependencies>
 
     <build>
-        <finalName>app</finalName>
+        <finalName>${appName}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -89,7 +93,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.tweet.config.ConfigMain</mainClass>
-                    <finalName>app</finalName>
+                    <finalName>${appName}</finalName>
                 </configuration>
                 <executions>
                     <execution>
@@ -110,10 +114,17 @@
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
-                            <include>app.jar</include>
+                            <include>${appName}</include>
                         </resource>
                     </resources>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
