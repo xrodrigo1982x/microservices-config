@@ -69,6 +69,7 @@
     </dependencies>
 
     <build>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -88,7 +89,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.tweet.config.ConfigMain</mainClass>
-                    <finalName>config</finalName>
+                    <finalName>app</finalName>
                 </configuration>
                 <executions>
                     <execution>
@@ -109,7 +110,7 @@
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
+                            <include>app.jar</include>
                         </resource>
                     </resources>
                 </configuration>
