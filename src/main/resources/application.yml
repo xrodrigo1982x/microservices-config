@@ -11,11 +11,10 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8888/eureka/
+      defaultZone: http://${appName}/eureka/
   server:
     waitTimeInMsWhenSyncEmpty: 0
     instanceEnabledOnit: true
 
 cassandra:
-    host: 172.17.0.1
     keyspace: configserver

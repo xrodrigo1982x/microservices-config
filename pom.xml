@@ -103,13 +103,13 @@
                     </execution>
                 </executions>
             </plugin>
-           <!-- <plugin>
+            <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.3.2</version>
                 <configuration>
                     <imageName>micro/${project.artifactId}</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <dockerDirectory>target/classes</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -125,8 +125,26 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/Dockerfile</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.cql</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
