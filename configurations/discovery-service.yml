@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+
+eureka:
+  enableSelfPreservation: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    instanceEnabledOnit: true

@@ -3,18 +3,13 @@ spring:
     name: config-server
   cloud:
     config:
-      enabled: false
+      enabled: true
+      server:
+        git:
+          uri: https://github.com/xrodrigo1982x/microservices-configurations
 
-eureka:
-  enableSelfPreservation: true
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${appName}/eureka/
-  server:
-    waitTimeInMsWhenSyncEmpty: 0
-    instanceEnabledOnit: true
-
-cassandra:
-    keyspace: configserver
+info:
+  artifact: ${project.artifactId}
+  name: ${spring.application.name}
+  description: ${project.description}
+  version: ${project.version}
