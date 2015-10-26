@@ -1,6 +1,6 @@
 spring:
   application:
-    name: config-server
+    name: CONFIGSERVER
   cloud:
     config:
       enabled: true
