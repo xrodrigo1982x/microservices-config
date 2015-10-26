@@ -7,6 +7,8 @@ spring:
       server:
         git:
           uri: https://github.com/xrodrigo1982x/microservices-configurations
+      discovery:
+        enabled: true
 
 info:
   artifact: ${project.artifactId}
