@@ -2,3 +2,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${eureka.host}
+  instance:
+   preferIpAddress: true
