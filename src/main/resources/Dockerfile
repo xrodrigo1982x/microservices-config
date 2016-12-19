@@ -1,5 +1,4 @@
-FROM sdorra/oracle-java-8:latest
+FROM lwieske/java-8:server-jre-8u112-slim
 VOLUME /tmp
-ADD ${appName}.jar ${appName}.jar
-RUN bash -c 'touch /${appName}.jar'
-ENTRYPOINT ["java","-jar","/${appName}.jar"]
+ADD ${buildName}.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

@@ -11,7 +11,9 @@
     <description>Serviço de centralização de configurações</description>
 
     <properties>
-        <appName>config-service</appName>
+        <buildNumber>0</buildNumber>
+        <buildVersion>${project.version}.${buildNumber}</buildVersion>
+        <buildName>${project.artifactId}.${buildVersion}</buildName>
     </properties>
 
     <dependencyManagement>
@@ -19,7 +21,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-parent</artifactId>
-                <version>1.0.2.RELEASE</version>
+                <version>Brixton.SR7</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -68,7 +70,7 @@
     </dependencies>
 
     <build>
-        <finalName>${appName}</finalName>
+        <finalName>${buildName}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -88,7 +90,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.tweet.config.ConfigMain</mainClass>
-                    <finalName>${appName}</finalName>
+                    <finalName>${buildName}</finalName>
                 </configuration>
                 <executions>
                     <execution>
@@ -104,12 +106,15 @@
                 <version>0.3.2</version>
                 <configuration>
                     <imageName>micro/${project.artifactId}</imageName>
+                    <imageTags>
+                        <imageTag>${buildVersion}</imageTag>
+                    </imageTags>
                     <dockerDirectory>target/classes</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
-                            <include>${appName}.jar</include>
+                            <include>${buildName}.jar</include>
                         </resource>
                     </resources>
                 </configuration>
